@@ -253,8 +253,6 @@ data = [
 //   display(data);
 // })
 
-// console.log(data)
-
 
 // ------------------------------ MAIN-DISPLAY ------------------------------ //
 
@@ -326,7 +324,7 @@ function arrangePriceLowToHight(field,order)
 
     if(order == "asc" && typeof a[field] == "number")
     {
-    return a[field]- b[field];
+      return a[field]- b[field];
     }
     else if(order == 'desc' && typeof a[field] == "number")
     {
@@ -344,7 +342,8 @@ function arrangePriceLowToHight(field,order)
         }
     }
     else
-    { if(a.title > b.title)
+    { 
+      if(a.title > b.title)
       {
         return -1;
       }
