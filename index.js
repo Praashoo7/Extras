@@ -274,7 +274,7 @@ function display(siteData){
         <div class=cardButtons>
         <div class="ratingsPrice"><div class="ratings"><span id="rating">${value.rating.rate}</span> rating from <span id="count">${value.rating.count}</span> users!</div><div class="price"><span>${value.price}$</span></div></div>
         <button class="addTocart" id="addTocart${value.id}" onclick=addToCartPage("${value.id}")>Add to Cart</button>
-        <button class="buy">Buy</button>
+        <button class="buy" onclick="document.getElementById('addTocart${value.id}').click(); switchPageCART()">Buy</button>
         </div>
         </div>
     </div>
@@ -779,55 +779,6 @@ function switchPageITEM(ID){
   })
   document.getElementById("itemDisplay").innerHTML = itemDisplay.join("");
 }
-
-
-
-
-// ----------------------- **TOTALING-THE-CHECKOUT-VALUE** ----------------------- //
-
-// function getSpanContents(className) {
-//   const spans = document.getElementsByClassName(className);
-//   return Array.from(spans).map(span => span.innerHTML);
-// }
-
-// let spanContents = getSpanContents('cartPrices');
-
-// function calculateTotal(arr) {
-//   return arr.reduce((total, value) => {
-//     const number = parseFloat(value.replace('$', ''));
-//     return total + (isNaN(number) ? 0 : number);
-//   }, 0);
-// }
-
-// function updateSpanContents(className) {
-//   spanContents = getSpanContents(className);
-//   const total = calculateTotal(spanContents);
-//   const totalElement = document.getElementById("total");
-//   if (totalElement && totalElement.innerHTML !== total.toFixed(2)) {
-//     totalElement.innerHTML = total.toFixed(2);
-//   }
-
-//   isUpdating = false;
-// }
-
-
-// const observer = new MutationObserver((mutations) => {
-//   mutations.forEach((mutation) => {
-//     if (mutation.type === 'childList' || mutation.type === 'characterData') {
-//       updateSpanContents('cartPrices');
-//     }
-//   });
-// });
-
-
-// const config = { 
-//   childList: true, 
-//   characterData: true, 
-//   subtree: true 
-// };
-
-
-// observer.observe(document.body, config);
 
 
 
