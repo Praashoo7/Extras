@@ -1,0 +1,77 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FashionCart</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="icon.svg">
+</head>
+<body>
+    
+    <div class="main">
+        
+        <div class="top">
+            <div class="oside">
+            <div class="home" id="home" onclick="window.location.reload()">
+                <svg class="homeSVG" id="homeSVG" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M9 20H7C5.89543 20 5 19.1046 5 18V10.9199C5 10.336 5.25513 9.78132 5.69842 9.40136L10.6984 5.11564C11.4474 4.47366 12.5526 4.47366 13.3016 5.11564L18.3016 9.40136C18.7449 9.78132 19 10.336 19 10.9199V18C19 19.1046 18.1046 20 17 20H15M9 20V14C9 13.4477 9.44772 13 10 13H14C14.5523 13 15 13.4477 15 14V20M9 20H15" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>
+            </div>
+            <div class="back" id="back" onclick="back()">    
+                <svg class="backSVG" id="backSVG" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path fill="#ffffff" d="M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64z"></path><path fill="#ffffff" d="m237.248 512 265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z"></path></g></svg>
+            </div>
+            <input type="search" class="search" id="search" autocomplete="off" onfocusin="searchDropdownOpen()" onfocusout="searchDropdownClose()" onkeyup="search()" placeholder="Search products..">
+            <div class="search_options" id="search_options"></div>
+            </div>
+            <div class="side">
+                <div class="reference_dropdown">
+                    <div class="custom_dropdown">
+                        <div class="selected_option" id="sort">Sort by</div>
+                        <ul class="options" id="sortOptions">
+                            <li onclick="arrangePriceLowToHight('price','asc')">Low to High</li>
+                            <li onclick="arrangePriceLowToHight('price','desc')">High to Low</li>
+                            <li onclick="arrangePriceLowToHight('title','asc')">A-Z</li>
+                            <li onclick="arrangePriceLowToHight('title','desc')">Z-A</li>
+                        </ul>
+                    </div>                                
+                    <div class="custom_arrow"></div>
+                </div>
+                <div class="reference_dropdown">
+                    <div class="custom_dropdown">
+                        <div class="selected_option" id="categories">Categories</div>
+                        <ul class="options" id="categoriesOptions">
+                        </ul>
+                    </div>                                
+                    <div class="custom_arrow"></div>
+                </div>
+                <div class="cart" onclick="switchPageCART();">
+                    <span class="cartItemCount" id="cartItemCount">0</span>
+                    <svg class="cartSVG" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 3L2.26491 3.0883C3.58495 3.52832 4.24497 3.74832 4.62248 4.2721C5 4.79587 5 5.49159 5 6.88304V9.5C5 12.3284 5 13.7426 5.87868 14.6213C6.75736 15.5 8.17157 15.5 11 15.5H19" stroke="#dbdbdb" stroke-width="1.5" stroke-linecap="round"/>
+                    <path opacity="0.5" d="M7.5 18C8.32843 18 9 18.6716 9 19.5C9 20.3284 8.32843 21 7.5 21C6.67157 21 6 20.3284 6 19.5C6 18.6716 6.67157 18 7.5 18Z" stroke="#dbdbdb" stroke-width="1.5"/>
+                    <path opacity="0.5" d="M16.5 18.0001C17.3284 18.0001 18 18.6716 18 19.5001C18 20.3285 17.3284 21.0001 16.5 21.0001C15.6716 21.0001 15 20.3285 15 19.5001C15 18.6716 15.6716 18.0001 16.5 18.0001Z" stroke="#dbdbdb" stroke-width="1.5"/>
+                    <path d="M5 6H16.4504C18.5054 6 19.5328 6 19.9775 6.67426C20.4221 7.34853 20.0173 8.29294 19.2078 10.1818L18.7792 11.1818C18.4013 12.0636 18.2123 12.5045 17.8366 12.7523C17.4609 13 16.9812 13 16.0218 13H5" stroke="#dbdbdb" stroke-width="1.5"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="data" id="data"></div>
+
+        <div class="cartMain" id="cartMain">
+            <div class="cartPage" id="cartPage">
+                <span class="emptyCart" id="emptyCart">Your Cart is Empty!</span>
+            </div>
+            <div class="finishingTotal" id="finishingTotal">
+                <span>Total : <span id="total"></span></span>
+                <button class="checkout">Checkout</button>
+                <button class="removeAll" onclick="removeAll()">Clear Cart</button>
+            </div>
+        </div>
+
+        <div class="itemDisplay" id="itemDisplay"></div>
+
+    </div>
+
+</body>
+</html>
+
+<script src="index.js"></script>
