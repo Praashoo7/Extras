@@ -263,7 +263,7 @@ function display(siteData){
   const dataDisplay = siteData.map((value) => {
     return `
     <div class="card">
-        <img src="${value.image}">
+        <img ondragstart="dragStart(event, ${value.id})" draggable="true" src="${value.image}">
         <div class=cardData>
         <div class="description">
         <h1>${value.title}</h1>
@@ -280,6 +280,32 @@ function display(siteData){
   });
   document.getElementById("data").innerHTML = dataDisplay.join("");
 }
+
+
+
+// -------------------------- DARG-AND-DROP-IN-CART -------------------------- //
+
+function dragStart(event,id) {
+  event.dataTransfer.setData("Text", id);
+  console.log(id)
+}
+
+function allowDrop(event,id) {
+  event.preventDefault();
+  document.getElementById(id).style.scale = 1.2
+}
+
+function mouseout(id){
+  document.getElementById(id).style.scale = 1
+}
+
+function drop(event) {
+  event.preventDefault();
+  const data = event.dataTransfer.getData("Text");
+  document.getElementById(`addTocart${data}`).click();
+  document.getElementById("cart").style.scale = 1
+}
+
 
 
 // -------------------------- FILTERING-CATEGORIES -------------------------- //
