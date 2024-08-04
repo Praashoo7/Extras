@@ -297,6 +297,7 @@ function allowDrop(event,id) {
 
 function mouseout(id){
   document.getElementById(id).style.scale = 1
+  document.getElementById("cart").classList.remove('bounce')
 }
 
 function drop(event) {
@@ -304,6 +305,7 @@ function drop(event) {
   const data = event.dataTransfer.getData("Text");
   document.getElementById(`addTocart${data}`).click();
   document.getElementById("cart").style.scale = 1
+  document.getElementById("cart").classList.add('bounce')
 }
 
 

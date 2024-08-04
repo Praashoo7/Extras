@@ -462,6 +462,28 @@ span{
 .cart:hover{
     background-color: rgba(0, 0, 0, 0.2);
 }
+.bounce{
+    animation: bounce 0.7s ease-in-out;
+}
+@keyframes bounce {
+
+    20%{
+        scale: 0.9;
+    }
+    40%{
+        scale: 1.1;
+    }
+    60%{
+        scale: 0.95;
+    }
+    80%{
+        scale: 1.05;
+    }
+    100%{
+        scale: 1;
+    }
+}
+
 .cartItemCount{
     position: absolute;
     top: 5%;
