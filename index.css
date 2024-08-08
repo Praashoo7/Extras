@@ -472,7 +472,7 @@ span{
     padding: 1em;
     height: max-content;
     transition: .4s ease-in-out;
-    margin-top: 7em;
+    margin-top: 5em;
 }
 .cartPage{
     display: flex;
@@ -484,6 +484,7 @@ span{
     background-color: #202020;
     padding: 1em;
     height: max-content;
+    gap: 1em;
     transition: .4s ease-in-out;
 }
 .cartData{
@@ -510,9 +511,6 @@ span{
     gap: 1em;
 }
 
-.cartData .left img{
-    margin-top: 1em;
-}
 .countTitleHeading, .titleHeading{
     font-size: 1.15em;
 }
@@ -585,7 +583,7 @@ input[type=number]{
 }
 
 @media screen and (max-width: 1024px){
-    .top, .data, .itemDisplay{
+    .top, .data, .itemDisplay, .cartPage{
         width: 100%;
     }
     .oside, .side{
@@ -608,7 +606,7 @@ input[type=number]{
         aspect-ratio: 16/9;
     }
     .cartMain{
-        margin-top: 12em;
+        margin-top: 8.75em;
     }
 }
 
@@ -637,7 +635,7 @@ input[type=number]{
         margin-top: 12.5em;
     }
     .cartMain{
-        margin-top: 15em;
+        margin-top: 12.75em;
     }
 }
 
